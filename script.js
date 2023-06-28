@@ -13,7 +13,7 @@
       const delay = delayInput.value;
 
       if (message && delay) {
-        outputDiv.textContent = 'Loading...';
+       
         try {
           const resolvedMessage = await delayedMessage(message, delay);
 	        outputDiv.textContent = resolvedMessage;
