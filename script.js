@@ -1,12 +1,22 @@
-document.getElementById('btn').addEventListener('click', async () => {
-  const textInput = document.getElementById('text');
-  const delayInput = document.getElementById('delay');
-  const outputDiv = document.getElementById('output');
+const inputText = document.getElementById('text');
+const inputDelay = document.getElementById('delay');
+const btn = document.getElementById('btn');
+const outputDiv = document.getElementById('output');
 
-  const message = textInput.value;
-  const delay = Number(delayInput.value) * 1000; // Convert delay to milliseconds
+// Function to display the message after a delay
+async function displayMessageWithDelay() {
+// Get the user input values
+const text = inputText.value;
+const delay = parseInt(inputDelay.value);
 
-  await new Promise(resolve => setTimeout(resolve, delay));
+// Wait for the specified delay
+await new Promise(resolve => setTimeout(resolve, delay));
 
-  outputDiv.textContent = message;
+// Display the message on the webpage
+outputDiv.textContent = text;
+}
+
+// Event listener for the button click
+btn.addEventListener('click', () => {
+displayMessageWithDelay();
 });
